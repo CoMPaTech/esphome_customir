@@ -1,0 +1,7 @@
+# ESPHome custom IR
+
+Put both files in the same directory and 'esphome myairco.yaml run' :)
+
+Obviously you'll need to have your own codes, just use Arduino and https://github.com/crankyoldgit/IRremoteESP8266/tree/master/examples/IRrecvDumpV2 to capture them
+
+When running (and connected) you'll see 'myairco' pop up as an available integration in your local HomeAssistant

@@ -1,0 +1,40 @@
+esphome:
+  name: myairco
+  platform: ESP8266
+  board: d1_mini_pro
+  includes: 
+    - lolin_remote.h
+  libraries:
+    - IRremoteESP8266
+
+wifi:
+  ssid: "something"
+  password: "secret"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: 'myairco'
+
+ota:
+  password: 'myairco'
+
+switch:
+- platform: custom
+  lambda: |-
+    auto lolin_remote23auto = new LolinRemote23Auto();
+    App.register_component(lolin_remote23auto);
+    return {lolin_remote23auto};
+
+  switches:
+    name: "Lolin Remote 23auto"
+- platform: custom
+  lambda: |-
+    auto lolin_remoteoff = new LolinRemoteOff();
+    App.register_component(lolin_remoteoff);
+    return {lolin_remoteoff};
+
+  switches:
+    name: "Lolin Remote Off"
